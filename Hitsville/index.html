@@ -4,13 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hitsville USA</title>
-    <link rel="stylesheet" href="style.css">
-  
+    <style>
+        @keyframes spinning {
+          from { transform: rotate(0deg) }
+          to { transform: rotate(360deg) }
+        }
+        .spin {
+          animation-name: spinning;
+          animation-duration: 8s;
+          animation-iteration-count: infinite;
+          /* linear | ease | ease-in | ease-out | ease-in-out */
+          animation-timing-function: linear;
+        }
+      </style>
+       <img src="Screen Shot 2022-09-02 at 11.23.12 AM.png" class="spin"/>
+    <link href="style.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <title>HitsVille USA</title>
 </head>
 <body>
- <canvas id="canvas1"></canvas>   
-
- <script src="script.js"></script> 
+    <div class="container">
+        <div id="questions-container" class="hide">
+            <div id="questions">Questions</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer1</button>
+                <button class="btn">Answer2</button>
+                <button class="btn">Answer3</button>
+                <button class="btn">Answer4</button>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="start-btn">Start</button>
+            <button id="start-btn">Next</button>
+        </div>
+    </div>
 </body>
 </html>
