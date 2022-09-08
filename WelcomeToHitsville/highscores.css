@@ -1,0 +1,42 @@
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 10%;
+    font-size: 75px;
+    color: white;
+}
+
+#highScoresList{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 5%;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 4rem;
+    color: white;
+}
+
+.high-score{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 20%;display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 5%;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.high-score:hover{
+    transform: scale(1.025);
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 5%;
+    color: red;
+}
