@@ -8,8 +8,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <style>
+    @keyframes spinning {
+      from { transform: rotate(0deg) }
+      to { transform: rotate(360deg) }
+    }
+    .spin {
+      animation-name: spinning;
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+      /* linear | ease | ease-in | ease-out | ease-in-out */
+      animation-timing-function: linear;
+    }
+  </style>
+  
+  <img src="HittsVille.png" class="spin"/>
     <div class="container">
       <div id="end" class="flex-center flex-column">
+        <h1 id="text">Final Score</h1>
         <h1 id="finalScore"></h1>
         <form>
           <input
