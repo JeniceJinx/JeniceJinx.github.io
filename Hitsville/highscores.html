@@ -5,10 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>High Scores</title>
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="highscores.css" />
     <link rel="stylesheet" href="highscores.css" />
   </head>
   <body>
+    <style>
+      @keyframes spinning {
+        from { transform: rotate(0deg) }
+        to { transform: rotate(360deg) }
+      }
+      .spin {
+        animation-name: spinning;
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+        /* linear | ease | ease-in | ease-out | ease-in-out */
+        animation-timing-function: linear;
+      }
+       body{
+        background-image: url(Congratulations.png);
+        background-repeat: no-repeat;
+       }
+    </style>
+    
+    <img src="HittsVille.png" class="spin"/>
     <div class="container">
       <div id="highScores" class="flex-center flex-column">
         <h1 id="finalScore">High Scores</h1>
