@@ -40,8 +40,10 @@
   
   h2 {
     font-size: 4.2rem;
+    margin-top: -1rem;
     margin-bottom: 4rem;
     font-weight: 700;
+    color: whitesmoke;
   }
   
   h3 {

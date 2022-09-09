@@ -9,12 +9,13 @@ let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
-let availableQuesions = [];
+let availableQuestions = [];
+
 
 let questions = [];
 
 fetch(
-    'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
+    'https://opentdb.com/api.php?amount=40&category=12&type=multiple'
 )
     .then((res) => {
         return res.json();
@@ -48,30 +49,36 @@ fetch(
 
 //CONSTANTS
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 5;
+const roundTwo = 'roundtwo.html';
+
 
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availableQuesions = [...questions];
+    availableQuestions = [...questions];
     getNewQuestion();
     game.classList.remove('hidden');
     loader.classList.add('hidden');
 };
 
 getNewQuestion = () => {
-    if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+    console.log(availableQuestions.length, questionCounter);
+    if ((availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) && !document.URL.includes(roundTwo) ) {
+          //go to the next round
         localStorage.setItem('mostRecentScore', score);
-        //go to the end page
-        return window.location.assign('/end.html');
+        return window.location.assign('/roundtwo.html');
+    }else if(document.URL.includes(roundTwo) && questionCounter >= MAX_QUESTIONS ){
+        return window.location.assign('end.html')
     }
+
     questionCounter++;
     progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
     //Update the progress bar
     progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
-    const questionIndex = Math.floor(Math.random() * availableQuesions.length);
-    currentQuestion = availableQuesions[questionIndex];
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
     question.innerHTML = currentQuestion.question;
 
     choices.forEach((choice) => {
@@ -79,7 +86,7 @@ getNewQuestion = () => {
         choice.innerHTML = currentQuestion['choice' + number];
     });
 
-    availableQuesions.splice(questionIndex, 1);
+    availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
 };
 
@@ -105,6 +112,7 @@ choices.forEach((choice) => {
             getNewQuestion();
         }, 1000);
     });
+
 });
 
 incrementScore = (num) => {
