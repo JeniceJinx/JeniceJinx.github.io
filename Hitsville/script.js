@@ -69,6 +69,7 @@ getNewQuestion = () => {
         localStorage.setItem('mostRecentScore', score);
         return window.location.assign('/roundtwo.html');
     }else if(document.URL.includes(roundTwo) && questionCounter >= MAX_QUESTIONS ){
+        localStorage.setItem('roundTwoScore', score);
         return window.location.assign('end.html')
     }
 
