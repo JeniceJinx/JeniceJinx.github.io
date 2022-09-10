@@ -19,7 +19,7 @@ saveHighScore = (e) => {
     e.preventDefault();
 
     const score = {
-        score: mostRecentScore + roundTwoScore,
+        score: parseInt(mostRecentScore) + parseInt(roundTwoScore),
         name: username.value,
     };
     highScores.push(score);
